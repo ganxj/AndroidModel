@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.gange.component.BR;
+import com.gange.component.common.DataBindAdapter;
 import com.gange.packagegroup.activity.MainActivity;
 
 import me.goldze.mvvmhabit.base.BaseApplication;
@@ -17,6 +19,8 @@ public class AppApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        DataBindAdapter.BIND_ITEM_ID = BR.item;
+
         BaseApplication.setApplication(this);
         //是否开启日志打印
         KLog.init(true);

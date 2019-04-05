@@ -1,14 +1,24 @@
-package com.gange.packagegroup.common;
+package com.gange.component.common;
 
 import android.databinding.BindingAdapter;
+import android.databinding.ObservableList;
 import android.util.Log;
 import android.widget.Adapter;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.WrapperListAdapter;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+
 public class BindAdapter {
+
+    @BindingAdapter("imageUrl")
+    public static void imageUrl(ImageView imageView, String url) {
+        Glide.with(imageView.getContext()).load(url).into(imageView);
+    }
 
 
     @BindingAdapter({"list_data", "list_view"})
@@ -27,7 +37,6 @@ public class BindAdapter {
                     }
                     break;
                 }
-
                 adapter = ((WrapperListAdapter) adapter).getWrappedAdapter();
             }
         }

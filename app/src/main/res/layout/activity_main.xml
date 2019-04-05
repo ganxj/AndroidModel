@@ -10,6 +10,11 @@
         <variable
             name="head"
             type="com.gange.component.head.HeadMp"/>
+
+        <variable
+            name="menu"
+            type="com.gange.component.menu.MenuMp"/>
+
     </data>
 
 
@@ -21,10 +26,13 @@
         <include layout="@layout/component_head_view"
             bind:head="@{head}"/>
 
+        <include layout="@layout/component_menu_view"
+            bind:menu="@{menu}"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{home.userName}"/>
+            android:text="哈哈哈"/>
 
     </LinearLayout>
 </layout>

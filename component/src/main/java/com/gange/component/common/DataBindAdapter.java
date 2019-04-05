@@ -1,4 +1,4 @@
-package com.gange.packagegroup.common;
+package com.gange.component.common;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
