@@ -15,6 +15,12 @@
             name="menu"
             type="com.gange.component.menu.MenuMp"/>
 
+        <variable
+            name="normalBanner"
+            type="com.gange.component.middleBanner.MiddleBannerMp"/>
+        <variable
+            name="banner"
+            type="com.gange.component.middleBanner.MiddleBannerMp"/>
     </data>
 
 
@@ -26,8 +32,14 @@
         <include layout="@layout/component_head_view"
             bind:head="@{head}"/>
 
+        <include layout="@layout/component_normal_banner_view"
+            bind:normalBanner="@{normalBanner}"/>
+
         <include layout="@layout/component_menu_view"
             bind:menu="@{menu}"/>
+
+        <include layout="@layout/component_middle_banner_view"
+            bind:banner="@{banner}"/>
 
         <TextView
             android:layout_width="wrap_content"
