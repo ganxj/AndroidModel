@@ -5,6 +5,9 @@ import android.databinding.DataBindingUtil;
 import android.databinding.ObservableArrayList;
 import android.databinding.ObservableList;
 import android.support.v4.view.PagerAdapter;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.OrientationHelper;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -17,6 +20,7 @@ import android.widget.WrapperListAdapter;
 
 import com.bumptech.glide.Glide;
 import com.gange.component.R;
+import com.gange.component.common.recyclerView.DataBindingRVAdapter;
 import com.gange.component.databinding.VpItemImageBannerBinding;
 import com.gange.component.databinding.VpItemImageNormalBannerBinding;
 import com.gange.component.middleBanner.MiddleBannerMp;
@@ -68,7 +72,7 @@ public class BindAdapter {
                 VpItemImageBannerBinding binding = DataBindingUtil.inflate(LayoutInflater.from(ultraViewPager.getContext()), R.layout.vp_item_image_banner, null, false);
                 binding.setItem(menuItemMp);
                 viewList.add(binding.getRoot());
-            }else if (type.equals("200")){
+            } else if (type.equals("200")) {
                 VpItemImageNormalBannerBinding binding = DataBindingUtil.inflate(LayoutInflater.from(ultraViewPager.getContext()), R.layout.vp_item_image_normal_banner, null, false);
                 binding.setItem(menuItemMp);
                 viewList.add(binding.getRoot());
@@ -95,6 +99,12 @@ public class BindAdapter {
     }
 
 
+    /**
+     * 暂时没用，菜单分页用
+     *
+     * @param ultraViewPager
+     * @param itemMp
+     */
     @BindingAdapter("home_menu_adapter")
     public static void homeMenuAdapter(UltraViewPager ultraViewPager, MiddleBannerMp itemMp) {
         ultraViewPager.setScrollMode(UltraViewPager.ScrollMode.HORIZONTAL);
@@ -127,6 +137,15 @@ public class BindAdapter {
                 .setRadius((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, ultraViewPager.getResources().getDisplayMetrics()));
         ultraViewPager.getIndicator().setGravity(Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM);
 //        ultraViewPager.getIndicator().build();
+    }
+
+
+    @BindingAdapter({"recycler_data", "recycler_view"})
+    public static void recyclerViewData(RecyclerView recyclerView, List data, List view) {
+        LinearLayoutManager layoutManager = new LinearLayoutManager(recyclerView.getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        layoutManager.setOrientation(OrientationHelper.VERTICAL);
+        recyclerView.setAdapter(new DataBindingRVAdapter(recyclerView.getContext(), data, view));
     }
 
 

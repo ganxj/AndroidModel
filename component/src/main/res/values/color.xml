@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="three">#333333</color>
-
     <color name="theme_color">#5059e2</color>
+
+    <color name="three">#333333</color>
+    <color name="six">#666666</color>
+    <color name="nine">#999999</color>
+
+
 </resources>

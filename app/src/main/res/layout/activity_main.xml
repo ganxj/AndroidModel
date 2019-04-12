@@ -21,6 +21,11 @@
         <variable
             name="banner"
             type="com.gange.component.middleBanner.MiddleBannerMp"/>
+
+        <variable
+            name="recycler"
+            type="com.gange.component.recyclerView.RecyclerMp"/>
+
     </data>
 
 
@@ -32,19 +37,22 @@
         <include layout="@layout/component_head_view"
             bind:head="@{head}"/>
 
-        <include layout="@layout/component_normal_banner_view"
-            bind:normalBanner="@{normalBanner}"/>
+        <include layout="@layout/component_recycler_view"
+            bind:recycler="@{recycler}"/>
 
-        <include layout="@layout/component_menu_view"
-            bind:menu="@{menu}"/>
+        <!--<include layout="@layout/component_normal_banner_view"-->
+            <!--bind:normalBanner="@{normalBanner}"/>-->
 
-        <include layout="@layout/component_middle_banner_view"
-            bind:banner="@{banner}"/>
+        <!--<include layout="@layout/component_menu_view"-->
+            <!--bind:menu="@{menu}"/>-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="哈哈哈"/>
+        <!--<include layout="@layout/component_middle_banner_view"-->
+            <!--bind:banner="@{banner}"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="哈哈哈"/>-->
 
     </LinearLayout>
 </layout>
