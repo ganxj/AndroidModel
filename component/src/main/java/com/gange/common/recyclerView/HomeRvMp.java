@@ -1,4 +1,4 @@
-package com.gange.component.common.recyclerView;
+package com.gange.common.recyclerView;
 
 import com.gange.component.BR;
 

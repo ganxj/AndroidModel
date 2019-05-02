@@ -7,7 +7,7 @@ import android.databinding.ObservableField;
 import android.support.annotation.NonNull;
 import android.view.View;
 
-import com.gange.component.common.Router;
+import com.gange.common.Router;
 
 import me.goldze.mvvmhabit.base.BaseViewModel;
 import me.goldze.mvvmhabit.utils.ToastUtils;

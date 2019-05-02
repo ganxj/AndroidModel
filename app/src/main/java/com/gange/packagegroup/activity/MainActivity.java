@@ -4,10 +4,9 @@ import android.databinding.ObservableArrayList;
 import android.os.Bundle;
 
 import com.gange.component.TitleView.TitleViewMp;
-import com.gange.component.common.recyclerView.HomeRvMp;
-import com.gange.component.common.recyclerView.RvViewTypeMp;
+import com.gange.common.recyclerView.HomeRvMp;
+import com.gange.common.recyclerView.RvViewTypeMp;
 import com.gange.component.head.HeadMp;
-import com.gange.component.imageView.ImageViewMp;
 import com.gange.component.itemView.ItemView1Mp;
 import com.gange.component.menu.MenuItemMp;
 import com.gange.component.menu.MenuMp;
@@ -20,7 +19,6 @@ import com.gange.packagegroup.databinding.ActivityMainBinding;
 import com.gange.packagegroup.model.HomeModel;
 
 import me.goldze.mvvmhabit.base.BaseActivity;
-import me.goldze.mvvmhabit.base.ItemViewModel;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding, HomeModel> {
 

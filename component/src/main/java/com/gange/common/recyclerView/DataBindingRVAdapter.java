@@ -1,4 +1,4 @@
-package com.gange.component.common.recyclerView;
+package com.gange.common.recyclerView;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
@@ -12,7 +12,6 @@ import com.andview.refreshview.recyclerview.BaseRecyclerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.gange.component.BR;
 
 /**
  * Created by gange on 2018/3/16.

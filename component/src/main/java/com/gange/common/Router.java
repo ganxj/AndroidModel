@@ -1,9 +1,7 @@
-package com.gange.component.common;
+package com.gange.common;
 
 import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.launcher.ARouter;
-
-import java.util.Map;
 
 public class Router {
 

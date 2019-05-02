@@ -14,10 +14,6 @@ public class MiddleBannerMp extends BaseViewModel {
     public ObservableArrayList<MiddlerBannerItem> bannerItemList = new ObservableArrayList<>();
 
 
-    public MiddleBannerMp(@NonNull Application application) {
-        super(application);
-    }
-
     public MiddleBannerMp(@NonNull Application application, ObservableArrayList<MiddlerBannerItem> bannerItemList) {
         super(application);
         this.bannerItemList = bannerItemList;

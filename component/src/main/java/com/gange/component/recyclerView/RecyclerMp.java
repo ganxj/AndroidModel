@@ -4,8 +4,8 @@ import android.app.Application;
 import android.databinding.ObservableArrayList;
 import android.support.annotation.NonNull;
 
-import com.gange.component.common.recyclerView.HomeRvMp;
-import com.gange.component.common.recyclerView.RvViewTypeMp;
+import com.gange.common.recyclerView.HomeRvMp;
+import com.gange.common.recyclerView.RvViewTypeMp;
 
 import me.goldze.mvvmhabit.base.BaseViewModel;
 

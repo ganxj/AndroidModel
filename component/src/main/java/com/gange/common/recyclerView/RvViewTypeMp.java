@@ -1,6 +1,4 @@
-package com.gange.component.common.recyclerView;
-
-import com.gange.component.BR;
+package com.gange.common.recyclerView;
 
 /**
  * Created by gange on 2018/3/16.

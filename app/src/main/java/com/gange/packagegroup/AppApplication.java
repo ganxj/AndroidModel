@@ -1,12 +1,11 @@
 package com.gange.packagegroup;
 
 import android.app.Application;
-import android.content.Context;
 import android.content.pm.ApplicationInfo;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.gange.component.BR;
-import com.gange.component.common.DataBindAdapter;
+import com.gange.common.DataBindAdapter;
 import com.gange.packagegroup.activity.MainActivity;
 
 import me.goldze.mvvmhabit.base.BaseApplication;

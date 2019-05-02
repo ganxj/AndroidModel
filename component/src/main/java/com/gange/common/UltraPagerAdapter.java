@@ -1,4 +1,4 @@
-package com.gange.component.common;
+package com.gange.common;
 
 import android.support.v4.view.PagerAdapter;
 import android.view.View;

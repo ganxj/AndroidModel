@@ -1,9 +1,8 @@
-package com.gange.component.common;
+package com.gange.common;
 
 import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableArrayList;
-import android.databinding.ObservableList;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
@@ -20,7 +19,7 @@ import android.widget.WrapperListAdapter;
 
 import com.bumptech.glide.Glide;
 import com.gange.component.R;
-import com.gange.component.common.recyclerView.DataBindingRVAdapter;
+import com.gange.common.recyclerView.DataBindingRVAdapter;
 import com.gange.component.databinding.VpItemImageBannerBinding;
 import com.gange.component.databinding.VpItemImageNormalBannerBinding;
 import com.gange.component.middleBanner.MiddleBannerMp;
