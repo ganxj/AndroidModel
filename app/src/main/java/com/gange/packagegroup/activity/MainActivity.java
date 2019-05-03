@@ -13,6 +13,7 @@ import com.gange.component.menu.MenuMp;
 import com.gange.component.middleBanner.MiddleBannerMp;
 import com.gange.component.middleBanner.MiddlerBannerItem;
 import com.gange.component.recyclerView.RecyclerMp;
+import com.gange.component.tipMiddle.TipMiddleMp;
 import com.gange.packagegroup.BR;
 import com.gange.packagegroup.R;
 import com.gange.packagegroup.databinding.ActivityMainBinding;
@@ -37,8 +38,11 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, HomeModel> {
         viewList.add(new RvViewTypeMp(1 , R.layout.component_normal_banner_view));
         viewList.add(new RvViewTypeMp(2 , R.layout.component_menu_view ));
         viewList.add(new RvViewTypeMp(3 , R.layout.component_middle_banner_view ));
+        viewList.add(new RvViewTypeMp(6 , R.layout.compontent_tip_middle_view));
+        viewList.add(new RvViewTypeMp(8 , R.layout.compontent__tip_middle_view2));
         viewList.add(new RvViewTypeMp(4 , R.layout.component_title_view ));
         viewList.add(new RvViewTypeMp(5 , R.layout.component_item_view1 ));
+        viewList.add(new RvViewTypeMp(7 , R.layout.component_item_view2 ));
 
 
         ObservableArrayList<MenuItemMp> menuItemMps = new ObservableArrayList<>();
@@ -54,13 +58,21 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, HomeModel> {
         binding.setNormalBanner(new MiddleBannerMp(getApplication(), middleBannerMps));
         binding.setBanner(new MiddleBannerMp(getApplication(), middleBannerMps));
 
+
         homeRvMps.add(new HomeRvMp(1 ,new MiddleBannerMp(getApplication(), middleBannerMps)  ,com.gange.component.BR.normalBanner) );
         homeRvMps.add(new HomeRvMp(2 ,new MenuMp(getApplication(), 4, menuItemMps) ,com.gange.component.BR.menu));
         homeRvMps.add(new HomeRvMp(3 ,new MiddleBannerMp(getApplication(), middleBannerMps),com.gange.component.BR.banner ));
+        homeRvMps.add(new HomeRvMp(6 ,new TipMiddleMp(getApplication(), "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556812301454&di=8f609c4059cb4023c59394f2cf98acb4&imgtype=0&src=http%3A%2F%2Fimg.25pp.com%2Fuploadfile%2Fsoft%2Fimages%2F2015%2F0722%2F20150722104102844.jpg" , "今日提醒" ,  "今日运势较好"),com.gange.component.BR.tip ));
+        homeRvMps.add(new HomeRvMp(8 ,new TipMiddleMp(getApplication(), "http://qnfile.bidanet.com/%E6%B6%88%E6%81%AF.png" , "今日提醒" ,  "今日运势较好"),com.gange.component.BR.tip ));
         homeRvMps.add(new HomeRvMp(4 ,new TitleViewMp(getApplication(), "特惠精选" , "更多>" , true , "/home/list"),com.gange.component.BR.title ));
 
         for (int i = 0; i < 10; i++) {
             homeRvMps.add(new HomeRvMp(5 ,  new ItemView1Mp(getApplication() , "http://pic29.nipic.com/20130517/9252150_140653449378_2.jpg" , "哈哈哈哈哈哈哈哈吞吞吐吐吞吞吐吐天天" , "哈哈哈哈哈哈哈哈哈哈哈哈哈吞吞吐吐吞吞吐吐天天哈哈哈哈哈哈哈哈吞吞吐吐吞吞吐吐天天啊 啊啊啊啊啊啊 啊啊 啊啊啊啊啊啊 啊啊啊啊啊 "  , "/home/list") ));
+        }
+
+        homeRvMps.add(new HomeRvMp(4 ,new TitleViewMp(getApplication(), "另类文章格式" , "更多>" , true , "/home/list"),com.gange.component.BR.title ));
+        for (int i = 0; i < 10; i++) {
+            homeRvMps.add(new HomeRvMp(7 ,  new ItemView1Mp(getApplication() , "http://pic29.nipic.com/20130517/9252150_140653449378_2.jpg" , "哈哈哈哈哈哈哈哈吞吞吐吐吞吞吐吐天天" , "哈哈哈哈哈哈哈哈哈哈哈哈哈吞吞吐吐吞吞吐吐天天哈哈哈哈哈哈哈哈吞吞吐吐吞吞吐吐天天啊 啊啊啊啊啊啊 啊啊 啊啊啊啊啊啊 啊啊啊啊啊 "  , "/home/list" , "发布者。。。" , "http://b-ssl.duitang.com/uploads/item/201811/04/20181104203324_xfeme.thumb.700_0.jpg") ));
         }
 
         binding.setRecycler(new RecyclerMp(getApplication() , homeRvMps , viewList));

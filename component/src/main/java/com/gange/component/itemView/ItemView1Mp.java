@@ -14,6 +14,8 @@ public class ItemView1Mp extends BaseViewModel {
     public ObservableField<String> imageUrl = new ObservableField<>("");
     public ObservableField<String> title = new ObservableField<>("");
     public ObservableField<String> subject = new ObservableField<>("");
+    public ObservableField<String> fromUser = new ObservableField<>("");
+    public ObservableField<String> fromUserAvatar = new ObservableField<>("");
     public ObservableField<String> path = new ObservableField<>("");
 
     public ItemView1Mp(@NonNull Application application) {
@@ -26,6 +28,16 @@ public class ItemView1Mp extends BaseViewModel {
         this.title = new ObservableField<>(title);
         this.subject = new ObservableField<>(subject);
         this.path = new ObservableField<>(path);
+    }
+
+    public ItemView1Mp(@NonNull Application application, String imageUrl, String title, String subject, String path, String fromUser, String fromUserAvatar) {
+        super(application);
+        this.imageUrl = new ObservableField<>(imageUrl);
+        this.title = new ObservableField<>(title);
+        this.subject = new ObservableField<>(subject);
+        this.path = new ObservableField<>(path);
+        this.fromUser = new ObservableField<>(fromUser);
+        this.fromUserAvatar = new ObservableField<>(fromUserAvatar);
     }
 
    public void click(View view){
