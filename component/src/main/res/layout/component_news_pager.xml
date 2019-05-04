@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="mp"
+            type="com.gange.component.newsViewPager.NewsViewPagerMp"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            news_title_rv="@{mp.list}"
+            title_click="@{mp.listener}"
+            recycler_view_click="@{mp.currentIndex}">
+        </android.support.v7.widget.RecyclerView>
+
+        <com.tmall.ultraviewpager.UltraViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            pager_change="@{mp.listener}"
+            view_pager_index_choose="@{mp.currentIndex}"
+            news_view_pager="@{mp.list}">
+        </com.tmall.ultraviewpager.UltraViewPager>
+
+    </LinearLayout>
+
+</layout>

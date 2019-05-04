@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.pm.ApplicationInfo;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.gange.common.BindAdapter;
 import com.gange.component.BR;
 import com.gange.common.DataBindAdapter;
 import com.gange.packagegroup.activity.MainActivity;
@@ -18,6 +19,7 @@ public class AppApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        BindAdapter.setApplication(this);
         DataBindAdapter.BIND_ITEM_ID = BR.item;
 
         BaseApplication.setApplication(this);

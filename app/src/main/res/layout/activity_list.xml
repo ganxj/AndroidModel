@@ -3,9 +3,12 @@
     xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="mp"
-            type="com.gange.packagegroup.model.ListModel"/>
+            type="com.gange.component.newsViewPager.NewsViewPagerMp"/>
+
+
         <variable
             name="head"
             type="com.gange.component.head.HeadMp"/>
@@ -19,11 +22,8 @@
         <include layout="@layout/component_head_view"
             bind:head="@{head}"/>
 
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </ListView>
+        <include layout="@layout/component_news_pager"
+            bind:mp="@{mp}"/>
 
     </LinearLayout>
 
