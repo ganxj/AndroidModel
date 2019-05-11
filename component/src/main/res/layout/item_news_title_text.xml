@@ -8,11 +8,13 @@
     </data>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="@{item.title}"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:gravity="center"
+        android:textSize="16sp"
         android:onClick="@{(v)->item.click(v)}"
         android:textColor="@{item.choose?@color/theme_color:@color/three}"/>
 

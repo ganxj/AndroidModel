@@ -14,15 +14,22 @@
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
             news_title_rv="@{mp.list}"
             title_click="@{mp.listener}"
             recycler_view_click="@{mp.currentIndex}">
         </android.support.v7.widget.RecyclerView>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#eeeeee"/>
+
         <com.tmall.ultraviewpager.UltraViewPager
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/white"
             pager_change="@{mp.listener}"
             view_pager_index_choose="@{mp.currentIndex}"
             news_view_pager="@{mp.list}">

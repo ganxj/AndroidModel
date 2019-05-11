@@ -44,6 +44,7 @@ import me.goldze.mvvmhabit.utils.ToastUtils;
 public class BindAdapter {
 
     public static Application application;
+    public static int lastNewsItemIndex = 2;
 
     public static void setApplication(Application application) {
         BindAdapter.application = application;
@@ -199,7 +200,7 @@ public class BindAdapter {
     }
 
     @BindingAdapter({"view_pager_index_choose"})
-    public static void view_pager_index_choose(UltraViewPager ultraViewPager,int currentIndex) {
+    public static void view_pager_index_choose(UltraViewPager ultraViewPager, int currentIndex) {
         if (ultraViewPager.getAdapter() != null && ultraViewPager.getAdapter().getCount() > 0) {
             ultraViewPager.setCurrentItem(currentIndex);
         }
@@ -212,8 +213,9 @@ public class BindAdapter {
             setNewsTitleChoose(recyclerView, position, dataList);
         }
     }
-    @BindingAdapter({"news_title_rv" , "title_click"})
-    public static void news_title_rv(final RecyclerView recyclerView, final List<PagerItemMp> list , final NewsViewPagerMp.OnPagerChangeListener listener) {
+
+    @BindingAdapter({"news_title_rv", "title_click"})
+    public static void news_title_rv(final RecyclerView recyclerView, final List<PagerItemMp> list, final NewsViewPagerMp.OnPagerChangeListener listener) {
         final ObservableArrayList<HomeRvMp> dataList = new ObservableArrayList<>();
         ObservableArrayList<RvViewTypeMp> viewList = new ObservableArrayList<>();
         viewList.add(new RvViewTypeMp(1, R.layout.item_news_title_text));
@@ -222,7 +224,7 @@ public class BindAdapter {
             dataList.add(new HomeRvMp(1, new NewsTitleMp(application, p.getTitle(), i == 0, i, new NewsTitleMp.OnTitleClickListener() {
                 @Override
                 public void click(int position) {
-                    setNewsTitleChoose(recyclerView , position , dataList);
+                    setNewsTitleChoose(recyclerView, position, dataList);
                     listener.clickTitleIndex(position);
                 }
             })));
@@ -235,13 +237,20 @@ public class BindAdapter {
     }
 
     private static void setNewsTitleChoose(RecyclerView recyclerView, int position, List<HomeRvMp> dataList) {
+        int p = position;
+        p = p < 2 ? 2 : p;
+        p = p > dataList.size() - 3 ? dataList.size() - 3 : p;
+        int diff = p - lastNewsItemIndex;
         for (int i = 0; i < dataList.size(); i++) {
             HomeRvMp homeRvMp = dataList.get(i);
-            ((NewsTitleMp)homeRvMp.getData()).choose.set(false);
+            ((NewsTitleMp) homeRvMp.getData()).choose.set(false);
         }
-        ((NewsTitleMp)dataList.get(position).getData()).choose.set(true);
+        ((NewsTitleMp) dataList.get(position).getData()).choose.set(true);
         // TODO: 2019/5/4 recyclerView 设置位置
-
+        int width = recyclerView.getWidth();
+        ToastUtils.showShort(width + "");
+        recyclerView.smoothScrollBy(diff * 210, 0);
+        lastNewsItemIndex = p;
     }
 
 }

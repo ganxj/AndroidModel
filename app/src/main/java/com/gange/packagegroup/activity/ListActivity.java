@@ -6,6 +6,8 @@ import android.os.Bundle;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.gange.common.newsViewPager.PagerItemMp;
 import com.gange.component.head.HeadMp;
+import com.gange.component.itemView.ItemListViewMp;
+import com.gange.component.itemView.ItemView1Mp;
 import com.gange.component.newsViewPager.NewsViewPagerMp;
 import com.gange.packagegroup.BR;
 import com.gange.packagegroup.R;
@@ -25,8 +27,14 @@ public class ListActivity extends BaseActivity<ActivityListBinding, NewsViewPage
         super.initData();
         binding.setHead(new HeadMp(getApplication(), true, "列表页"));
         ObservableArrayList<PagerItemMp> list = new ObservableArrayList<>();
+        ObservableArrayList<ItemView1Mp> itemView1Mps = new ObservableArrayList<>();
         for (int i = 0; i < 10; i++) {
-            list.add(new PagerItemMp("页面" + i, R.layout.view_pager_test, BR.item, "页面" + i));
+            itemView1Mps.add(new ItemView1Mp(getApplication(), "http://pic29.nipic.com/20130517/9252150_140653449378_2.jpg", "哈哈哈哈哈哈哈哈吞吞吐吐吞吞吐吐天天", "哈哈哈哈哈哈哈哈哈哈哈哈哈吞吞吐吐吞吞吐吐天天哈哈哈哈哈哈哈哈吞吞吐吐吞吞吐吐天天啊 啊啊啊啊啊啊 啊啊 啊啊啊啊啊啊 啊啊啊啊啊 ", "/home/list", "发布者。。。", "http://b-ssl.duitang.com/uploads/item/201811/04/20181104203324_xfeme.thumb.700_0.jpg"));
+        }
+        ItemListViewMp itemListViewMp = new ItemListViewMp(getApplication(), itemView1Mps);
+        list.add(new PagerItemMp("列表", R.layout.component_item_view3, itemListViewMp, BR.item));
+        for (int i = 0; i < 10; i++) {
+            list.add(new PagerItemMp("页面" + i, R.layout.view_pager_test, "页面" + i, BR.item));
         }
         binding.setMp(new NewsViewPagerMp(getApplication(), list));
     }

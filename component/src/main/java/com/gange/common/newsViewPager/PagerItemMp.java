@@ -20,7 +20,7 @@ public class PagerItemMp {
     public PagerItemMp() {
     }
 
-    public PagerItemMp(String title, int view, int itemId, Object data) {
+    public PagerItemMp(String title, int view, Object data, int itemId) {
         this.title = title;
         this.view = view;
         this.itemId = itemId;
