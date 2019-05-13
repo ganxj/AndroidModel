@@ -4,7 +4,7 @@
     <data>
         <variable
             name="mp"
-            type="com.gange.component.homeTab.HomeTabItemMp"/>
+            type="com.gange.component.homeTab.HomeTabMp"/>
     </data>
 
 
@@ -30,9 +30,10 @@
             android:layout_height="49dp"
             android:layout_alignParentBottom="true"
             android:background="@color/white"
-            android:orientation="horizontal">
-
-
+            android:orientation="horizontal"
+            foreach_data="@{mp.tabList}"
+            foreach_view="@{mp.view}"
+            item_id="@{mp.itemId}">
 
         </LinearLayout>
     </RelativeLayout>

@@ -15,6 +15,7 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -252,5 +253,22 @@ public class BindAdapter {
         recyclerView.smoothScrollBy(diff * 210, 0);
         lastNewsItemIndex = p;
     }
+
+
+
+
+    @BindingAdapter({"foreach_data", "foreach_view", "item_id"})
+    public static void foreach(ViewGroup viewGroup, List data, int view, int itemId) {
+        viewGroup.removeAllViews();
+        if (data != null) {
+            for (int i = 0; i < data.size(); ++i) {
+                ViewDataBinding inflate = android.databinding.DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), view, viewGroup, false);
+                inflate.setVariable(itemId, data.get(i));
+//                inflate.setVariable(BR.item_index, i);
+                viewGroup.addView(inflate.getRoot());
+            }
+        }
+    }
+
 
 }

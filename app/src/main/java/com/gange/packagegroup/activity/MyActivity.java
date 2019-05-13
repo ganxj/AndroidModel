@@ -28,7 +28,7 @@ public class MyActivity extends BaseActivity<ActivityMyBinding, MyModel> {
         super.initData();
         binding.setMp(new MyModel(getApplication()));
         binding.setMyHead(new MyHeadMp(getApplication() , "http://img1.juimg.com/140915/330635-14091515495980.jpg" , "哈哈哈" , "102"));
-        binding.setItem(new ItemEntryMp(getApplication() , "http://img1.juimg.com/140915/330635-14091515495980.jpg" , "意见反馈" , "/test/activity" , false));
+        binding.setItem(new ItemEntryMp(getApplication() , "http://img1.juimg.com/140915/330635-14091515495980.jpg" , "意见反馈" , "/home/home" , false));
     }
 
     @Override
