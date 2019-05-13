@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:onClick="@{(v)->item.click(v)}"
             android:layout_margin="6dp"
             android:background="@drawable/item_radio_bg">
 

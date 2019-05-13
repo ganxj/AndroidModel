@@ -6,7 +6,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 public class Router {
 
     public static void router(String path){
-        ARouter.getInstance().build("/test/activity").navigation();
+        ARouter.getInstance().build(path).navigation();
     }
 
     public static Postcard getRouter(String path ){
