@@ -27,13 +27,11 @@ public class NewsViewPagerMp extends BaseViewModel {
         this.listener = new ObservableField<OnPagerChangeListener>(new OnPagerChangeListener() {
             @Override
             public void changed(int i) {
-                ToastUtils.showShort("页面" +i);
                 currentIndex.set(i);
             }
 
             @Override
             public void clickTitleIndex(int i) {
-                ToastUtils.showShort("点击了" + i);
                 currentIndex.set(i);
             }
         });

@@ -76,6 +76,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, HomeModel> {
         }
 
         binding.setRecycler(new RecyclerMp(getApplication() , homeRvMps , viewList));
+
     }
 
     @Override

@@ -12,11 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.gange.view.NoScollViewPager
+        <com.tmall.ultraviewpager.UltraViewPager
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="49dp">
-        </com.gange.view.NoScollViewPager>
+            android:layout_marginBottom="49dp"
+            home_tab_pager="@{mp.tabList}"
+            home_tab_choose="@{mp.currentIndex}"
+            home_tab_activite="@{mp.activity}"
+            home_tab_change_listener="@{mp.listener}">
+        </com.tmall.ultraviewpager.UltraViewPager>
 
         <View
             android:layout_width="match_parent"
@@ -33,7 +37,8 @@
             android:orientation="horizontal"
             foreach_data="@{mp.tabList}"
             foreach_view="@{mp.view}"
-            item_id="@{mp.itemId}">
+            item_id="@{mp.itemId}"
+            item_click="@{mp.listener}">
 
         </LinearLayout>
     </RelativeLayout>

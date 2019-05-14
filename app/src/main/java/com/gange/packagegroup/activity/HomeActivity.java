@@ -10,6 +10,7 @@ import com.gange.packagegroup.BR;
 import com.gange.packagegroup.R;
 import com.gange.packagegroup.databinding.ActivityHomeBinding;
 import com.gange.packagegroup.fragment.HomeFragment;
+import com.gange.packagegroup.fragment.WoDeFragment;
 import com.gange.packagegroup.model.HomeMp;
 
 import me.goldze.mvvmhabit.base.BaseActivity;
@@ -28,11 +29,19 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeMp> {
     public void initData() {
         super.initData();
         ObservableArrayList<HomeTabItemMp> list = new ObservableArrayList<>();
-        list.add(new HomeTabItemMp(getApplication() , "首页" , "http://img1.juimg.com/140915/330635-14091515495980.jpg" , new HomeFragment()));
-        list.add(new HomeTabItemMp(getApplication() , "首页" , "http://img1.juimg.com/140915/330635-14091515495980.jpg" , new HomeFragment()));
-        list.add(new HomeTabItemMp(getApplication() , "首页" , "http://img1.juimg.com/140915/330635-14091515495980.jpg" , new HomeFragment()));
-        list.add(new HomeTabItemMp(getApplication() , "首页" , "http://img1.juimg.com/140915/330635-14091515495980.jpg" , new HomeFragment()));
-        binding.setTab(new HomeTabMp(getApplication() , list));
+        list.add(new HomeTabItemMp(getApplication() , "首页" , "http://img1.juimg.com/140915/330635-14091515495980.jpg"
+                ,"http://img1.juimg.com/140915/330635-14091515495980.jpg" , new HomeFragment()));
+
+        list.add(new HomeTabItemMp(getApplication() , "商城" , "http://img1.juimg.com/140915/330635-14091515495980.jpg"
+                ,"http://img1.juimg.com/140915/330635-14091515495980.jpg" , new HomeFragment()));
+
+        list.add(new HomeTabItemMp(getApplication() , "首页" , "http://img1.juimg.com/140915/330635-14091515495980.jpg"
+                ,"http://img1.juimg.com/140915/330635-14091515495980.jpg" , new HomeFragment()));
+
+        list.add(new HomeTabItemMp(getApplication() , "我的" , "http://img1.juimg.com/140915/330635-14091515495980.jpg"
+                ,"http://img1.juimg.com/140915/330635-14091515495980.jpg" , new WoDeFragment()));
+
+        binding.setTab(new HomeTabMp(getApplication() ,this, list));
     }
 
     @Override

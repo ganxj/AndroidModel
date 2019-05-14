@@ -5,6 +5,8 @@ import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableArrayList;
 import android.databinding.ViewDataBinding;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,15 +32,20 @@ import com.gange.component.R;
 import com.gange.common.recyclerView.DataBindingRVAdapter;
 import com.gange.component.databinding.VpItemImageBannerBinding;
 import com.gange.component.databinding.VpItemImageNormalBannerBinding;
+import com.gange.component.homeTab.HomeTabItemMp;
+import com.gange.component.homeTab.HomeTabMp;
 import com.gange.component.middleBanner.MiddleBannerMp;
 import com.gange.component.middleBanner.MiddlerBannerItem;
 import com.gange.component.newsViewPager.NewsViewPagerMp;
 import com.gange.component.recyclerView.RecyclerMp;
+import com.gange.view.NoScollViewPager;
 import com.tmall.ultraviewpager.UltraViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import me.goldze.mvvmhabit.base.BaseActivity;
+import me.goldze.mvvmhabit.base.BaseFragment;
 import me.goldze.mvvmhabit.utils.ToastUtils;
 
 
@@ -226,7 +233,9 @@ public class BindAdapter {
                 @Override
                 public void click(int position) {
                     setNewsTitleChoose(recyclerView, position, dataList);
-                    listener.clickTitleIndex(position);
+                    if (list != null) {
+                        listener.clickTitleIndex(position);
+                    }
                 }
             })));
         }
@@ -247,18 +256,14 @@ public class BindAdapter {
             ((NewsTitleMp) homeRvMp.getData()).choose.set(false);
         }
         ((NewsTitleMp) dataList.get(position).getData()).choose.set(true);
-        // TODO: 2019/5/4 recyclerView 设置位置
-        int width = recyclerView.getWidth();
-        ToastUtils.showShort(width + "");
+
         recyclerView.smoothScrollBy(diff * 210, 0);
         lastNewsItemIndex = p;
     }
 
 
-
-
-    @BindingAdapter({"foreach_data", "foreach_view", "item_id"})
-    public static void foreach(ViewGroup viewGroup, List data, int view, int itemId) {
+    @BindingAdapter({"foreach_data", "foreach_view", "item_id", "item_click"})
+    public static void foreach(ViewGroup viewGroup, List data, int view, int itemId, final HomeTabMp.OnHomeTabChangeListener listener) {
         viewGroup.removeAllViews();
         if (data != null) {
             for (int i = 0; i < data.size(); ++i) {
@@ -266,9 +271,69 @@ public class BindAdapter {
                 inflate.setVariable(itemId, data.get(i));
 //                inflate.setVariable(BR.item_index, i);
                 viewGroup.addView(inflate.getRoot());
+
+                final int finalI = i;
+                inflate.getRoot().setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (listener != null) {
+                            listener.clickTitleIndex(finalI);
+                        }
+                    }
+                });
             }
         }
     }
 
+
+    @BindingAdapter({"home_tab_pager", "home_tab_activite" , "home_tab_change_listener"})
+    public static void homeTab(UltraViewPager viewPager, final List<HomeTabItemMp> list,  BaseActivity activity ,final HomeTabMp.OnHomeTabChangeListener listener) {
+        viewPager.setOffscreenPageLimit(list.size());
+        final List<BaseFragment> fragmentList = new ArrayList<>();
+        for (HomeTabItemMp f : list) {
+            fragmentList.add(f.fragment.get());
+        }
+
+        FragmentPagerAdapter adapter = new FragmentPagerAdapter(activity.getSupportFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {
+                return fragmentList.get(position);
+            }
+
+            @Override
+            public int getCount() {
+                return fragmentList.size();
+            }
+        };
+
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
+
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+                if (listener != null){
+                    listener.changed(i);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
+            }
+        });
+
+        viewPager.setAdapter(adapter);
+        viewPager.setCurrentItem(0);
+    }
+
+    @BindingAdapter({"home_tab_choose"})
+    public static void homeTabChoose(UltraViewPager viewPager , int index){
+        if (viewPager.getAdapter() != null && viewPager.getAdapter().getCount() > index) {
+            viewPager.setCurrentItem(index);
+        }
+    }
 
 }
