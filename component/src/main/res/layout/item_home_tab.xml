@@ -18,7 +18,7 @@
             android:layout_height="24dp"
             android:layout_gravity="center"
             android:layout_marginTop="4dp"
-            imageUrl="@{item.icon}"/>
+            imageUrl="@{item.choose?item.iconChoose:item.icon}"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -26,7 +26,8 @@
             android:text="@{item.name}"
             android:textColor="@{item.choose?@color/theme_color:@color/three}"
             android:layout_gravity="center"
-            android:layout_marginTop="6dp"/>
+            android:layout_marginTop="4dp"
+            android:textSize="13sp"/>
 
     </LinearLayout>
     

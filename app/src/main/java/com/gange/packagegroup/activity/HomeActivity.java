@@ -29,17 +29,17 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeMp> {
     public void initData() {
         super.initData();
         ObservableArrayList<HomeTabItemMp> list = new ObservableArrayList<>();
-        list.add(new HomeTabItemMp(getApplication() , "首页" , "http://img1.juimg.com/140915/330635-14091515495980.jpg"
-                ,"http://img1.juimg.com/140915/330635-14091515495980.jpg" , new HomeFragment()));
+        list.add(new HomeTabItemMp(getApplication() , "首页" , "http://qnfile.bidanet.com/ic_home_unchoose.png"
+                ,"http://qnfile.bidanet.com/ic_home_choose.png" , new HomeFragment()));
 
-        list.add(new HomeTabItemMp(getApplication() , "商城" , "http://img1.juimg.com/140915/330635-14091515495980.jpg"
-                ,"http://img1.juimg.com/140915/330635-14091515495980.jpg" , new HomeFragment()));
+        list.add(new HomeTabItemMp(getApplication() , "商城" , "http://qnfile.bidanet.com/ic_home_unchoose.png"
+                ,"http://qnfile.bidanet.com/ic_home_choose.png" , new HomeFragment()));
 
-        list.add(new HomeTabItemMp(getApplication() , "首页" , "http://img1.juimg.com/140915/330635-14091515495980.jpg"
-                ,"http://img1.juimg.com/140915/330635-14091515495980.jpg" , new HomeFragment()));
+        list.add(new HomeTabItemMp(getApplication() , "首页" , "http://qnfile.bidanet.com/ic_home_unchoose.png"
+                ,"http://qnfile.bidanet.com/ic_home_choose.png" , new HomeFragment()));
 
-        list.add(new HomeTabItemMp(getApplication() , "我的" , "http://img1.juimg.com/140915/330635-14091515495980.jpg"
-                ,"http://img1.juimg.com/140915/330635-14091515495980.jpg" , new WoDeFragment()));
+        list.add(new HomeTabItemMp(getApplication() , "我的" , "http://qnfile.bidanet.com/ic_home_unchoose.png"
+                ,"http://qnfile.bidanet.com/ic_home_choose.png" , new WoDeFragment()));
 
         binding.setTab(new HomeTabMp(getApplication() ,this, list));
     }
